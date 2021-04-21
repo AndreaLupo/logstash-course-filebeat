@@ -21,3 +21,18 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+data/*
+kibana/*
+.build*
+filebeat.exe
+install-service*
+LICENSE.txt
+NOTICE.txt
+uninstall-service*
+
+module/*
+modules.d/*
+
+!module/apache
+!modules.d/apache.yml

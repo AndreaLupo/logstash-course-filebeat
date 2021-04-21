@@ -1,0 +1,2 @@
+2021-04-21T18:30:20.285+0200	INFO	instance/beat.go:660	Home path: [D:\Andrea\corsi\elasticsearch\programmi\filebeat-7.12.0] Config path: [D:\Andrea\corsi\elasticsearch\programmi\filebeat-7.12.0] Data path: [D:\Andrea\corsi\elasticsearch\programmi\filebeat-7.12.0\data] Logs path: [D:\Andrea\corsi\elasticsearch\programmi\filebeat-7.12.0\logs]
+2021-04-21T18:30:20.327+0200	INFO	instance/beat.go:668	Beat ID: 20952a75-202a-47c8-bf5d-57bb6660acc6
