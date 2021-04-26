@@ -21,12 +21,13 @@ filebeat.inputs:
 - type: log
 
   # Change to true to enable this input configuration.
-  enabled: false
+  enabled: true
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-    - /var/log/*.log
+    #- /var/log/*.log
     #- c:\programdata\elasticsearch\logs\*
+    - d:\Andrea\corsi\elasticsearch\programmi\logstash-7.12.0\data\apache\apache_access_*.log
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.
@@ -38,13 +39,18 @@ filebeat.inputs:
 
   # Exclude files. A list of regular expressions to match. Filebeat drops the files that
   # are matching any regular expression from the list. By default, no files are dropped.
-  #exclude_files: ['.gz$']
+  exclude_files: ['.gz$']
 
   # Optional additional fields. These fields can be freely picked
   # to add additional information to the crawled log files for filtering
-  #fields:
+  fields:
   #  level: debug
   #  review: 1
+      events:
+        module: apache
+        dataset: "apache.access"
+
+  fields_under_root: true
 
   ### Multiline options
 
@@ -119,7 +125,7 @@ setup.template.settings:
 
 # The tags of the shipper are included in their own field with each
 # transaction published.
-#tags: ["service-X", "web-tier"]
+tags: ["web-server"]
 
 # Optional fields that you can specify to add additional information to the
 # output.
@@ -130,7 +136,7 @@ setup.template.settings:
 # These settings control loading the sample dashboards to the Kibana index. Loading
 # the dashboards is disabled by default and can be enabled either by setting the
 # options here or by using the `setup` command.
-#setup.dashboards.enabled: false
+setup.dashboards.enabled: true
 
 # The URL from where to download the dashboards archive. By default this URL
 # has a value which is computed based on the Beat name and version. For released
@@ -148,7 +154,7 @@ setup.kibana:
   # Scheme and port can be left out and will be set to the default (http and 5601)
   # In case you specify and additional path, the scheme is required: http://localhost:5601/path
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
-  #host: "localhost:5601"
+  host: "localhost:5601"
 
   # Kibana Space ID
   # ID of the Kibana Space into which the dashboards should be loaded. By default,
@@ -188,7 +194,7 @@ setup.kibana:
 # ------------------------------ Logstash Output -------------------------------
 output.logstash:
   # The Logstash hosts
-  hosts: ["localhost:5044"]
+  hosts: ["localhost:5504"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications

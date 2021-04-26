@@ -8,7 +8,8 @@
 
     # Set custom paths for the log files. If left empty,
     # Filebeat will choose the paths depending on your OS.
-    var.paths: [ "D:/Andrea/corsi/elasticsearch/programmi/logstash-7.12.0/data/apache/apache_access.log" ]
+    var.paths: [ 
+    "D:/Andrea/corsi/elasticsearch/programmi/logstash-7.12.0/data/apache/apache_access_*.log" ]
 
   # Error logs
   error:
